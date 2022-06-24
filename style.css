@@ -69,8 +69,16 @@ li{
     min-height: 40px;
     display: flex;
     align-items: center;
-    text-align: center;
-    background-color: yellow;
+    text-align: left;
+    
     padding: 0 10px;
     margin-bottom: 5px;
+}
+li.messageTodos{
+    background-color: #FFFFFF;
+    line-break: anywhere;
+
+}
+li.status{
+    background-color: #DCDCDC;
 }

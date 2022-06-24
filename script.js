@@ -1,6 +1,5 @@
 let mensagens = undefined;
 
-
 userLog()
 
 function userLog(){
@@ -29,18 +28,21 @@ function carregarMensagens(resposta){
 }
 function renderizarMensagens(){
     const ulMensagens = document.querySelector(".mensagens");
+    
     for (let i=0; i<mensagens.length; i++){
-        ulMensagens.innerHTML+= `<li>${mensagens[i].time} ${mensagens[i].from} para ${mensagens[i].to}: ${mensagens[i].text}</li>`
+        if(mensagens[i].type === 'message' && mensagens[i].to === 'Todos'){
+            ulMensagens.innerHTML+= `<li class="messageTodos">(${mensagens[i].time}) ${mensagens[i].from} para ${mensagens[i].to}: ${mensagens[i].text}</li>`
+            
+        }else if(mensagens[i].type === 'status'){
+            ulMensagens.innerHTML+= `<li class="status">(${mensagens[i].time}) ${mensagens[i].from} ${mensagens[i].text}</li>`
+            
+         }
     }
-
-
 }
-
 
 function verificarUser(error){
     console.log("deu ruim #1", error.response.status)
     if (error.response.status === 400){
         userLog()
-    }
-
+      }
 }
