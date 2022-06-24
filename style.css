@@ -13,6 +13,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 25px;
 }
 header img{
     margin: 0px 20px;
@@ -30,6 +31,9 @@ footer{
     justify-content: space-between;
     align-items: center;
 }
+footer img{
+    margin: 0 20px;
+}
 input{
     width: 300px;
     height: 40px;
@@ -43,7 +47,7 @@ input{
     background-color: blue;
     font-size: 16px;
     display: none;
-    
+
 }
 .icon-Sidebar{
     width: 24px;
@@ -60,4 +64,13 @@ input{
 }
 .contato{
     display: flex;
+}
+li{
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: yellow;
+    padding: 0 10px;
+    margin-bottom: 5px;
 }
