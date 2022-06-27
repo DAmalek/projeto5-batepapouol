@@ -7,7 +7,8 @@ function userLog(){
     };
     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", userName)
     
-    promise.then(chatUol)
+    promise.then(entrar)
+    
 
     promise.catch(verificarError)
 }
@@ -30,18 +31,16 @@ function carregarMensagens(resposta){
 
 function renderizarMensagens(mensagens){
     const ulMensagens = document.querySelector(".mensagens");
-    
+    ulMensagens.innerHTML = ""
     for (let i=0; i<mensagens.length; i++){
         if(mensagens[i].type === 'message' && mensagens[i].to === 'Todos'){
-            ulMensagens.innerHTML+= `<li class="messageTodos">(${mensagens[i].time}) <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong>: ${mensagens[i].text}</li>`
-            
-            
+            ulMensagens.innerHTML+= `<li class="messageTodos"><p>(${mensagens[i].time}) <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong>: <span>${mensagens[i].text}</span></p></li>`
             
         }else if(mensagens[i].type === 'status'){
-            ulMensagens.innerHTML+= `<li class="status">(${mensagens[i].time}) <strong>${mensagens[i].from}</strong> ${mensagens[i].text}</li>`
+            ulMensagens.innerHTML+= `<li class="status"><p>(${mensagens[i].time}) <strong>${mensagens[i].from}</strong> ${mensagens[i].text}</p></li>`
             
-         }else if(mensagens[i].type === 'private_message'){
-            ulMensagens.innerHTML+= `<li class="direct">(${mensagens[i].time}) <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong>: ${mensagens[i].text}</li>`
+         }else if(mensagens[i].type === 'private_message' && mensagens[i].from === userName.name){
+            ulMensagens.innerHTML+= `<li class="direct"><p>(${mensagens[i].time}) <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong>: <span>${mensagens[i].text}</span></p></li>`
         }
     }
     // ta estranho
@@ -67,7 +66,7 @@ function enviarMensagem() {
     })
     
     promessa.catch(verificarError)
-    userMensagem.innerHTML = ""
+    document.querySelector("input").value = ""
 
 
 }
@@ -78,5 +77,16 @@ function verificarError(error){
       }
 }
 
+function sinaldeVida() {
+    const nome = {
+        name: userName.name
+    }
+    const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/status', nome);
+
+}
+function entrar(){
+    setInterval(chatUol, 3000)
+    setInterval(sinaldeVida, 5000)
+}
+
 userLog()
-setInterval(chatUol, 3000)

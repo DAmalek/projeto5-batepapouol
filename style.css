@@ -12,7 +12,6 @@ body {
 strong{
     font-style: bold;
     font-weight: 700;
-    margin: 0 5px;
 }
 header {
     height: 80px;
@@ -88,7 +87,6 @@ li{
     padding: 0 10px;
     margin-bottom: 5px;
     
-    line-break: normal;
 }
 li.messageTodos{
     background-color: #FFFFFF;
@@ -104,4 +102,7 @@ li.direct{
 }
 .mensagens{
     margin-bottom: 74px;
+}
+span{
+    line-break: anywhere;
 }
