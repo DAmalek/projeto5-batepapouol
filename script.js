@@ -67,7 +67,7 @@ function enviarMensagem() {
     })
     
     promessa.catch(verificarError)
-    const
+    userMensagem.innerHTML = ""
 
 
 }
