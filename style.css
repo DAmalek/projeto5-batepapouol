@@ -43,11 +43,12 @@ footer{
 footer img{
     margin: 0 20px;
 }
-input{
-    width:  85%;
+textarea{
+    resize: none;
+    flex-grow: 1;
     height: 30px;
     margin: 0px 20px;
-    
+    font-style: italic;
 }
 .text{
     font-style: italic;

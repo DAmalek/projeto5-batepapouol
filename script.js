@@ -48,7 +48,7 @@ function renderizarMensagens(mensagens){
 }
 
 function enviarMensagem() {
-    const userMensagem = document.querySelector("input").value
+    const userMensagem = document.querySelector("textarea").value
     const novaMensagem = {
         from: userName.name,
         to: "Todos",
@@ -66,7 +66,7 @@ function enviarMensagem() {
     })
     
     promessa.catch(verificarError)
-    document.querySelector("input").value = ""
+    document.querySelector("textarea").value = ""
 
 
 }
